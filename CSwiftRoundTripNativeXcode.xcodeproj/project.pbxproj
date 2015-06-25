@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00B10B711B3C3415003A4BF8 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B10B701B3C3415003A4BF8 /* main.c */; };
+		00B10B7F1B3C343F003A4BF8 /* MyCFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 00B10B781B3C343F003A4BF8 /* MyCFunctions.c */; };
+		00B10B801B3C343F003A4BF8 /* ObjCTrampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B10B7C1B3C343F003A4BF8 /* ObjCTrampoline.m */; };
+		00B10B811B3C343F003A4BF8 /* SwiftMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B10B7D1B3C343F003A4BF8 /* SwiftMain.swift */; };
+		00B10B821B3C343F003A4BF8 /* SwiftTrampoline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B10B7E1B3C343F003A4BF8 /* SwiftTrampoline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,13 @@
 /* Begin PBXFileReference section */
 		00B10B6D1B3C3415003A4BF8 /* CSwiftRoundTripNativeXcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSwiftRoundTripNativeXcode; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B10B701B3C3415003A4BF8 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		00B10B771B3C343F003A4BF8 /* CSwiftRoundTripNativeXcode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSwiftRoundTripNativeXcode-Bridging-Header.h"; sourceTree = "<group>"; };
+		00B10B781B3C343F003A4BF8 /* MyCFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MyCFunctions.c; sourceTree = "<group>"; };
+		00B10B791B3C343F003A4BF8 /* MyCFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCFunctions.h; sourceTree = "<group>"; };
+		00B10B7B1B3C343F003A4BF8 /* ObjCTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCTrampoline.h; sourceTree = "<group>"; };
+		00B10B7C1B3C343F003A4BF8 /* ObjCTrampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCTrampoline.m; sourceTree = "<group>"; };
+		00B10B7D1B3C343F003A4BF8 /* SwiftMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMain.swift; sourceTree = "<group>"; };
+		00B10B7E1B3C343F003A4BF8 /* SwiftTrampoline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTrampoline.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,13 @@
 			isa = PBXGroup;
 			children = (
 				00B10B701B3C3415003A4BF8 /* main.c */,
+				00B10B781B3C343F003A4BF8 /* MyCFunctions.c */,
+				00B10B791B3C343F003A4BF8 /* MyCFunctions.h */,
+				00B10B7B1B3C343F003A4BF8 /* ObjCTrampoline.h */,
+				00B10B7C1B3C343F003A4BF8 /* ObjCTrampoline.m */,
+				00B10B7D1B3C343F003A4BF8 /* SwiftMain.swift */,
+				00B10B7E1B3C343F003A4BF8 /* SwiftTrampoline.swift */,
+				00B10B771B3C343F003A4BF8 /* CSwiftRoundTripNativeXcode-Bridging-Header.h */,
 			);
 			path = CSwiftRoundTripNativeXcode;
 			sourceTree = "<group>";
@@ -118,7 +136,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B10B811B3C343F003A4BF8 /* SwiftMain.swift in Sources */,
 				00B10B711B3C3415003A4BF8 /* main.c in Sources */,
+				00B10B821B3C343F003A4BF8 /* SwiftTrampoline.swift in Sources */,
+				00B10B7F1B3C343F003A4BF8 /* MyCFunctions.c in Sources */,
+				00B10B801B3C343F003A4BF8 /* ObjCTrampoline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,14 +227,21 @@
 		00B10B751B3C3415003A4BF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSwiftRoundTripNativeXcode/CSwiftRoundTripNativeXcode-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		00B10B761B3C3415003A4BF8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSwiftRoundTripNativeXcode/CSwiftRoundTripNativeXcode-Bridging-Header.h";
 			};
 			name = Release;
 		};

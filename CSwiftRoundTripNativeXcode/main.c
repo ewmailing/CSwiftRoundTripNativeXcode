@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 PlayControl Software LLC. All rights reserved.
 //
 
-#include <stdio.h>
+#include "ObjCTrampoline.h"
 
-int main(int argc, const char * argv[]) {
-	// insert code here...
-	printf("Hello, World!\n");
-    return 0;
+int main(int argc, char* argv[])
+{
+	int retval = ObjCTrampoline_EnterMain(argc, argv);
+	
+	return retval;
+	
 }
